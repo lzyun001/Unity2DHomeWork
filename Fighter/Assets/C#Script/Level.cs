@@ -11,10 +11,10 @@ public class Level : MonoBehaviour
 
     public void NextScene()
     {
-        if (NextSceneName == "Menu")
+        /*if (NextSceneName == "Menu")
         {
-            GameObject.Find("BGM").GetComponent<AudioSource>().enabled = false;
-        }
+           GameObject.Find("BGM").GetComponent<AudioSource>().enabled = false;
+        }*/
         Application.LoadLevel(NextSceneName);
     }
 }
