@@ -11,6 +11,10 @@ public class Level : MonoBehaviour
 
     public void NextScene()
     {
+        if (NextSceneName == "Movie")
+        {
+            GameObject.Find("BGM").GetComponent<AudioSource>().enabled = false;
+        }    
         /*if (NextSceneName == "Menu")
         {
            GameObject.Find("BGM").GetComponent<AudioSource>().enabled = false;

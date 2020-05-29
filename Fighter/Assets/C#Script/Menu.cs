@@ -22,7 +22,9 @@ public class Menu : MonoBehaviour
     private void Start()
     {
         SoundControl();
-        PlayerPrefs.GetFloat(SaveAudioSlider, SoundSlider.value);
+        SoundSlider.value=PlayerPrefs.GetFloat(SaveAudioSlider);
+        AudioListener.volume = SoundSlider.value;
+
     }
 
     private void Update()
