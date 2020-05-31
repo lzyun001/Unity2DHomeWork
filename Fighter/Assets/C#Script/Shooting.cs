@@ -10,6 +10,8 @@ public class Shooting : MonoBehaviour
     public GameObject Bullet;
     [Header("子彈生成點")]
     public Transform CreateObject;
+    [Header("射擊音效")]
+    public AudioSource ShootingSound;
     private void Start()
     {
         InvokeRepeating("CreateBullet", CreateTime, CreateTime);
@@ -17,5 +19,6 @@ public class Shooting : MonoBehaviour
     void CreateBullet()
     {
         Instantiate(Bullet, CreateObject.position, CreateObject.rotation);
+        ShootingSound.Play();
     }
 }
