@@ -154,5 +154,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.05
   time: 5
-  Effect: {fileID: 6631018290899785826, guid: 77e0fc0f530ba804197b783231d09d00, type: 3}
+  Effect: {fileID: 100008, guid: 7075bd5fe1480184695a32611c15da57, type: 3}
   EffectAudio: {fileID: 0}
