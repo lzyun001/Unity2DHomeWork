@@ -26,13 +26,23 @@ public class Bullet : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<Collider2D>().tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy" && gameObject.tag =="PlayerMissle")
         {
             Instantiate(Effect, collision.transform.position, collision.transform.rotation);
+            GameObject.Find("Player").GetComponent<Player>().Score();
             EffectAudio.Play();
             Destroy(collision.gameObject);
             Destroy(gameObject);
 
+        }
+        if (collision.gameObject.tag == "EnemyMissle" && gameObject.tag == "PlayerMissle")
+        {
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+        }
+        if (collision.gameObject.tag == "Player" && gameObject.tag == "EnemyMissle")
+        {
+            GameObject.Find("Player").GetComponent<Player>().HurtPlayer(10f);
         }
     }
     

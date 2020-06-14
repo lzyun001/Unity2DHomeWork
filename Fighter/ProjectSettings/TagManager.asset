@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - FxTemporaire
+  - PlayerMissle
+  - EnemyMissle
+  - LevelButton
   layers:
   - Default
   - TransparentFX

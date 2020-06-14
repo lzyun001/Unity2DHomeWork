@@ -14,6 +14,7 @@ public class Shooting : MonoBehaviour
     public AudioSource ShootingSound;
     private void Start()
     {
+        ShootingSound = GameObject.Find("shoot2").GetComponent<AudioSource>();
         InvokeRepeating("CreateBullet", CreateTime, CreateTime);
     }
     void CreateBullet()

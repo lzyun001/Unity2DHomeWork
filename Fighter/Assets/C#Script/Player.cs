@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -17,10 +18,38 @@ public class Player : MonoBehaviour
     {
         鍵盤 = 0, 手機陀羅儀 = 1, 滑鼠 = 2, 手機搖桿 = 3
     }
+    [Header("玩家血量")]
+    public float PlayerHP;
+    float ScriptHP;
+    [Header("玩家血量")]
+    public Image HPBar;
+    [Header("打死敵機加分")]
+    public float AddScore;
+    float ScriptScore;
+    public Text ScoreText;
+
+    string SaveScore = "SaveScore";
     // Start is called before the first frame update
     void Start()
     {
+        ScriptHP = PlayerHP;
+    }
 
+    public void HurtPlayer(float hurt)
+    {
+        ScriptHP -= hurt;
+        ScriptHP = Mathf.Clamp(ScriptHP, 0, PlayerHP);
+        HPBar.fillAmount = ScriptHP / PlayerHP;
+        if (ScriptHP <= 0)
+        {
+            PlayerPrefs.SetFloat(SaveScore, ScriptScore);
+            Application.LoadLevel("GameOver");
+        }
+    }
+    public void Score()
+    {
+        ScriptScore += AddScore;
+        ScoreText.text = "Score:" + ScriptScore;
     }
 
     // Update is called once per frame
